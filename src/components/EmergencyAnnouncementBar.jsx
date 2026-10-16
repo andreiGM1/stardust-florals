@@ -227,6 +227,7 @@ export default function EmergencyAnnouncementBar({ onOpenLeadModal }) {
       {/* Left Arrow */}
       <button
         id="btn-emergency-prev-msg"
+        className="emergency-nav-arrow"
         onClick={() => setMessageIndex((prev) => (prev - 1 + MESSAGES.length) % MESSAGES.length)}
         aria-label="Mesaj anterior"
         style={{
@@ -307,6 +308,7 @@ export default function EmergencyAnnouncementBar({ onOpenLeadModal }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
         <button
           id="btn-emergency-next-msg"
+          className="emergency-nav-arrow"
           onClick={() => setMessageIndex((prev) => (prev + 1) % MESSAGES.length)}
           aria-label="Mesajul următor"
           style={{

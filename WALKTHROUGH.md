@@ -2,6 +2,29 @@
 
 Documentație cronologică a tuturor îmbunătățirilor aplicate proiectului de către agentul de optimizare autonomă.
 
+## 📱 Optimizare Completă pentru Mobil (Smartphones & Touch Viewports 320px - 430px)
+- **Data și Ora:** 16 Octombrie 2026, ora 12:45 (EEST)
+- **Obiectiv & Rezultat:** Optimizare mobilă de la zero pe toate paginile și componentele aplicației Stardust Florals™ pentru o experiență thumb-friendly de lux fără cusur pe ecrane de telefon (iPhone 14/15, Samsung Galaxy, 390px, 375px, 320px):
+  - **Header & Navbar Fluid:**
+    - Bara de urgență compactată pe ecrane mici (padding redus, ecuson de timp curat, fără săgeți redundante).
+    - Butoanele secundare de pe desktop (`Cadou 10%`, selectorul de temă, convertorul valutar) ascunse de pe bara de sus pe ecrane `<= 860px`, lăsând un header aerisit cu Logo-ul Stardust, un buton primar compact de `Comandă` și butonul hamburger accesibil tactil (min 44x44px).
+    - Sertarul de navigare mobil (`mobile-drawer`) repoziționat sub bara lipicioasă cu `position: absolute; top: 100%`, fundal `var(--bg-surface)` compatibil cu modul Midnight Glam, umbră profundă și scroll tactil fluid (`-webkit-overflow-scrolling: touch`).
+  - **Sertar Orizontal Interactiv pentru Butoanele din Hero:**
+    - Înlocuită stiva verticală anterioară de 18 butoane gigantice cu 2 acțiuni primare mari (`Comandă Buchetul Signature` și `Găsește Cadoul Ideal (60s)`) urmate de o tăviță orizontală elegantă (`hero-interactive-tray`) cu scroll tactil lin (`scroll-snap-type: x mandatory`), permițând utilizatorului mobil să vadă imediat imaginea buchetului și atributele de încredere fără a parcurge un ecran interminabil.
+  - **Protecție Universală Zero Horizontal Overflow (`0 Scroll Overflow`):**
+    - `overflow-x: clip` și `max-width: 100vw` aplicate pe `section`, `.section`, `main`, `.main-content`, `app-container`, prevenind expansiunea din cauza elementelor absolut poziționate (ex. lumina de fundal radială din reels).
+    - `min-width: 0` aplicat pe toți copiii containerelor grid (`.grid-2 > *`, `.grid-3 > *`, `.grid-4 > *`), eliminând expandarea forțată pe ecrane mici.
+    - Verificare minuțioasă pe Chrome DevTools MCP: `scrollWidth === clientWidth === 390px` (0 horizontal overflow pe 390px, 375px și 320px).
+  - **Input-uri iOS Anti-Auto-Zoom & Touch Targets:**
+    - Toate câmpurile `<input>`, `<select>`, `<textarea>` configurate la `font-size: 16px !important` pe ecrane `<= 768px`, eliminând comportamentul de auto-zoom agresiv din iOS Safari.
+    - Înălțime minimă de 44px pe butoane și controale de formular pentru o utilizare comodă cu degetul mare.
+  - **Checkout Receptiv:**
+    - Trecere automată la layout vertical pe o singură coloană cu selectori de dată și oră adaptați.
+    - Sumarul de comandă curat, fără suprapuneri sau elemente lipite necorespunzător pe ecran.
+  - **Modale Interactive Adaptate:**
+    - Toate ferestrele modale (Simulator Trandafir Mecatronic, Micro-Telescop Caleidoscopic, Pandantiv Diamant Cosmic, etc.) au padding optimizat (`24px 16px`), butoane de închidere `X` generoase și canvas-uri dimensionate dinamic pentru a se încadra perfect în lățimea ecranului.
+  - **Respectarea Standardelor:** 0 emoji-uri native (doar pictograme vectoriale SVG), `white-space: nowrap !important` pe butoanele de acțiune și build de producție fără erori (`npm run build`).
+
 ## 🕒 Ciclul 48: Configurator Interactiv de Micro-Telescop Caleidoscopic Integrat în Tija Trandafirului Central
 - **Data și Ora:** 12 Octombrie 2026, ora 12:10 (EEST)
 - **Task Implementat:** Task 67: Configurator Interactiv de Micro-Telescop Caleidoscopic Integrat în Tija Trandafirului Central

@@ -94,8 +94,8 @@ export default function HomePage({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertif
                 Descoperă buchetul viral creat în atelierul nostru: <strong>trandafiri negri misterioși pe margine și roșu rubiniu în centru</strong>, infuzați manual cu pulbere de diamant cosmetic și ghirlandă de micro-LED-uri.
               </p>
 
-              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '36px', alignItems: 'center' }}>
-                <Link to="/checkout?bouquet=signature-dual-noir-rouge" className="btn btn-primary btn-lg">
+              <div className="hero-primary-actions" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '20px', alignItems: 'center' }}>
+                <Link to="/checkout?bouquet=signature-dual-noir-rouge" className="btn btn-primary btn-lg" style={{ flex: '1 1 auto', minWidth: '220px', justifyContent: 'center' }}>
                   <span>Comandă Buchetul Signature</span>
                   <ArrowRight size={20} />
                 </Link>
@@ -104,193 +104,209 @@ export default function HomePage({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertif
                   id="btn-hero-start-quiz"
                   onClick={onOpenGiftQuiz}
                   className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', flex: '1 1 auto', minWidth: '220px' }}
                 >
                   <Compass size={18} color="var(--rose-600)" />
                   <span>Găsește Cadoul Ideal (60s)</span>
                 </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-concierge"
-                  onClick={onOpenConcierge || (() => window.dispatchEvent(new CustomEvent('open-vip-concierge')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Discută live cu Elena Vasilescu, Maestrul Florar Stardust"
-                >
-                  <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
-                    <ConciergeBellIcon size={18} color="#e11d48" />
-                    <span style={{ position: 'absolute', top: '-2px', right: '-3px', width: '7px', height: '7px', borderRadius: '50%', background: '#10b981' }} />
+              </div>
+
+              {/* Interactive Experiences Luxury Carousel / Tray */}
+              <div className="hero-interactive-tray" style={{ marginBottom: '28px' }}>
+                <div className="hero-tray-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <div className="hero-tray-title" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-main)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    <SparkleIcon size={14} color="#f59e0b" />
+                    <span>Experiențe & Configuratoare Interactive:</span>
                   </div>
-                  <span>Concierge VIP Live</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-led-simulator"
-                  onClick={onOpenLedSimulator || (() => window.dispatchEvent(new CustomEvent('open-micro-led-simulator')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Simulează efectul de noapte cu micro-LED-uri și licurici"
-                >
-                  <FairyLightsIcon size={18} color="#f59e0b" />
-                  <span>Simulator Luminițe LED</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-gourmet"
-                  onClick={onOpenGourmetTasting || (() => window.dispatchEvent(new CustomEvent('open-gourmet-tasting')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Pachet Gourmet: Moët & Chandon + Căpșuni Belgiane cu Foiță de Aur 24K"
-                >
-                  <ChampagneFlutesIcon size={18} color="#e11d48" />
-                  <span>Pachet Gourmet Moët</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-audio-engraving"
-                  onClick={onOpenAudioEngraving || (() => window.dispatchEvent(new CustomEvent('open-audio-engraving')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Gravură Audio & Spectrogramă Foiță de Aur 24K pe Carton de Colecție"
-                >
-                  <AudioWaveformIcon size={18} color="#f59e0b" />
-                  <span>Gravură Audio 24K</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-popup-card"
-                  onClick={onOpenPopUpCard || (() => window.dispatchEvent(new CustomEvent('open-popup-card-simulator')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Felicitare Pop-Up 3D cu Petale Plutitoare & Plic Sigilat"
-                >
-                  <PopUpGreetingCardIcon size={18} color="#e11d48" />
-                  <span>Felicitare Pop-Up 3D</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-music-box"
-                  onClick={onOpenMusicBox || (() => window.dispatchEvent(new CustomEvent('open-music-box-configurator')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Cutie Muzicală Mecanică Vintage în Baza Aranjamentului"
-                >
-                  <MusicBoxCrankIcon size={18} color="#f59e0b" />
-                  <span>Cutie Muzicală Vintage</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-unboxing"
-                  onClick={onOpenUnboxing || (() => window.dispatchEvent(new CustomEvent('open-royal-unboxing')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Simulator Interactiv de Despachetare Cadou — 4 Straturi de Lux"
-                >
-                  <UnboxingVaultIcon size={18} color="#e11d48" />
-                  <span>Unboxing Regal 3D</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-laser-engraver"
-                  onClick={onOpenPetalLaser || (() => window.dispatchEvent(new CustomEvent('open-petal-laser-engraver')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Gravură Micro-Laser pe Petală Naturală Stabilizată (Monogramă / Mesaj Secret)"
-                >
-                  <LaserPetalEngraverIcon size={18} color="#f43f5e" />
-                  <span>Gravură Laser Petală</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-care-guide"
-                  onClick={onOpenCareGuide || (() => window.dispatchEvent(new CustomEvent('open-care-guide-modal')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Ghid Interactiv de Îngrijire & Longevitate a Trandafirilor cu Sclipici Diamant (Calculator 14+ Zile)"
-                >
-                  <FlowerCareKitIcon size={18} color="#10b981" />
-                  <span>Calculator Longevitate & Îngrijire</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-aroma-medallion"
-                  onClick={onOpenAromaMedallion || (() => window.dispatchEvent(new CustomEvent('open-ceramic-aroma-medallion')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Simulator Interactiv de Difuzie Olfactivă & Medalion Ceramic Poros de Grasse"
-                >
-                  <CeramicMedallionIcon size={18} color="#0284c7" />
-                  <span>Medalion Ceramic & Parfum Grasse</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-holo-card"
-                  onClick={onOpenHoloCard || (() => window.dispatchEvent(new CustomEvent('open-holographic-card-modal')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Simulator Interactiv de Felicitare Holografică 3D cu Folie Lenticulară Japoneză"
-                >
-                  <HolographicPrismIcon size={18} color="#c084fc" />
-                  <span>Felicitare Holografică 3D</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-secret-drawer"
-                  onClick={onOpenSecretDrawer || (() => window.dispatchEvent(new CustomEvent('open-secret-drawer-modal')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Simulator Interactiv de Cutie Secretă cu Sertar Glisant Catifelat & Bijuterie Surpriză"
-                >
-                  <SecretDrawerIcon size={18} color="#f43f5e" />
-                  <span>Cutie Secretă cu Sertar VIP</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-smoke-cascade"
-                  onClick={onOpenSmokeCascade || (() => window.dispatchEvent(new CustomEvent('open-smoke-cascade-modal')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Simulator Interactiv de Efect Teatral „Smoke & Dry Ice Cascade” — Vapori Reci Aromatizați la Deschidere"
-                >
-                  <SmokeCascadeIcon size={18} color="#f43f5e" />
-                  <span>Efect Teatral Vapori Reci</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-cosmic-locket"
-                  onClick={onOpenCosmicLocket || (() => window.dispatchEvent(new CustomEvent('open-cosmic-locket-modal')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Configurator Interactiv de Pandantiv Hermetic Secret cu Capsulă de Pulbere de Diamant Cosmic & Mesaj Micro-Gravat"
-                >
-                  <CosmicLocketIcon size={18} color="#f43f5e" />
-                  <span>Pandantiv Diamant Cosmic</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-mechatronic-rose"
-                  onClick={onOpenMechatronicRose || (() => window.dispatchEvent(new CustomEvent('open-mechatronic-rose-modal')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Configurator Interactiv de Trandafir Mecatronic cu Petale Motorizate & Senzor de Puls Cardiac"
-                >
-                  <MechatronicRoseIcon size={18} color="#f43f5e" />
-                  <span>Trandafir Mecatronic & Puls</span>
-                </button>
-                <button 
-                  type="button" 
-                  id="btn-hero-open-kaleidoscope-telescope"
-                  onClick={onOpenKaleidoscope || (() => window.dispatchEvent(new CustomEvent('open-kaleidoscope-modal')))}
-                  className="btn btn-secondary btn-lg"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  title="Configurator Interactiv de Micro-Telescop Caleidoscopic Integrat în Tija Trandafirului Central"
-                >
-                  <MicroTelescopeIcon size={18} color="#f59e0b" />
-                  <span>Micro-Telescop Caleidoscopic</span>
-                </button>
-                <Link to="/colectie" className="btn btn-sm" style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}>
-                  Toată Colecția →
-                </Link>
+                  <span className="hero-tray-scroll-hint" style={{ fontSize: '0.74rem', color: 'var(--rose-600)', fontWeight: 700 }}>
+                    Glisează orizontal →
+                  </span>
+                </div>
+
+                <div className="hero-tray-scroll-container">
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-concierge"
+                    onClick={onOpenConcierge || (() => window.dispatchEvent(new CustomEvent('open-vip-concierge')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Discută live cu Elena Vasilescu, Maestrul Florar Stardust"
+                  >
+                    <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                      <ConciergeBellIcon size={16} color="#e11d48" />
+                      <span style={{ position: 'absolute', top: '-2px', right: '-3px', width: '7px', height: '7px', borderRadius: '50%', background: '#10b981' }} />
+                    </div>
+                    <span>Concierge VIP Live</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-led-simulator"
+                    onClick={onOpenLedSimulator || (() => window.dispatchEvent(new CustomEvent('open-micro-led-simulator')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Simulează efectul de noapte cu micro-LED-uri și licurici"
+                  >
+                    <FairyLightsIcon size={16} color="#f59e0b" />
+                    <span>Simulator Luminițe LED</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-gourmet"
+                    onClick={onOpenGourmetTasting || (() => window.dispatchEvent(new CustomEvent('open-gourmet-tasting')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Pachet Gourmet: Moët & Chandon + Căpșuni Belgiane cu Foiță de Aur 24K"
+                  >
+                    <ChampagneFlutesIcon size={16} color="#e11d48" />
+                    <span>Pachet Gourmet Moët</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-audio-engraving"
+                    onClick={onOpenAudioEngraving || (() => window.dispatchEvent(new CustomEvent('open-audio-engraving')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Gravură Audio & Spectrogramă Foiță de Aur 24K pe Carton de Colecție"
+                  >
+                    <AudioWaveformIcon size={16} color="#f59e0b" />
+                    <span>Gravură Audio 24K</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-popup-card"
+                    onClick={onOpenPopUpCard || (() => window.dispatchEvent(new CustomEvent('open-popup-card-simulator')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Felicitare Pop-Up 3D cu Petale Plutitoare & Plic Sigilat"
+                  >
+                    <PopUpGreetingCardIcon size={16} color="#e11d48" />
+                    <span>Felicitare Pop-Up 3D</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-music-box"
+                    onClick={onOpenMusicBox || (() => window.dispatchEvent(new CustomEvent('open-music-box-configurator')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Cutie Muzicală Mecanică Vintage în Baza Aranjamentului"
+                  >
+                    <MusicBoxCrankIcon size={16} color="#f59e0b" />
+                    <span>Cutie Muzicală Vintage</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-unboxing"
+                    onClick={onOpenUnboxing || (() => window.dispatchEvent(new CustomEvent('open-royal-unboxing')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Simulator Interactiv de Despachetare Cadou — 4 Straturi de Lux"
+                  >
+                    <UnboxingVaultIcon size={16} color="#e11d48" />
+                    <span>Unboxing Regal 3D</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-laser-engraver"
+                    onClick={onOpenPetalLaser || (() => window.dispatchEvent(new CustomEvent('open-petal-laser-engraver')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Gravură Micro-Laser pe Petală Naturală Stabilizată (Monogramă / Mesaj Secret)"
+                  >
+                    <LaserPetalEngraverIcon size={16} color="#f43f5e" />
+                    <span>Gravură Laser Petală</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-care-guide"
+                    onClick={onOpenCareGuide || (() => window.dispatchEvent(new CustomEvent('open-care-guide-modal')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Ghid Interactiv de Îngrijire & Longevitate a Trandafirilor cu Sclipici Diamant (Calculator 14+ Zile)"
+                  >
+                    <FlowerCareKitIcon size={16} color="#10b981" />
+                    <span>Calculator Longevitate</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-aroma-medallion"
+                    onClick={onOpenAromaMedallion || (() => window.dispatchEvent(new CustomEvent('open-ceramic-aroma-medallion')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Simulator Interactiv de Difuzie Olfactivă & Medalion Ceramic Poros de Grasse"
+                  >
+                    <CeramicMedallionIcon size={16} color="#0284c7" />
+                    <span>Medalion Ceramic & Parfum</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-holo-card"
+                    onClick={onOpenHoloCard || (() => window.dispatchEvent(new CustomEvent('open-holographic-card-modal')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Simulator Interactiv de Felicitare Holografică 3D cu Folie Lenticulară Japoneză"
+                  >
+                    <HolographicPrismIcon size={16} color="#c084fc" />
+                    <span>Felicitare Holografică 3D</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-secret-drawer"
+                    onClick={onOpenSecretDrawer || (() => window.dispatchEvent(new CustomEvent('open-secret-drawer-modal')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Simulator Interactiv de Cutie Secretă cu Sertar Glisant Catifelat & Bijuterie Surpriză"
+                  >
+                    <SecretDrawerIcon size={16} color="#f43f5e" />
+                    <span>Cutie Secretă cu Sertar</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-smoke-cascade"
+                    onClick={onOpenSmokeCascade || (() => window.dispatchEvent(new CustomEvent('open-smoke-cascade-modal')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Simulator Interactiv de Efect Teatral „Smoke & Dry Ice Cascade” — Vapori Reci Aromatizați la Deschidere"
+                  >
+                    <SmokeCascadeIcon size={16} color="#f43f5e" />
+                    <span>Efect Teatral Vapori Reci</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-cosmic-locket"
+                    onClick={onOpenCosmicLocket || (() => window.dispatchEvent(new CustomEvent('open-cosmic-locket-modal')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Configurator Interactiv de Pandantiv Hermetic Secret cu Capsulă de Pulbere de Diamant Cosmic & Mesaj Micro-Gravat"
+                  >
+                    <CosmicLocketIcon size={16} color="#f43f5e" />
+                    <span>Pandantiv Diamant Cosmic</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-mechatronic-rose"
+                    onClick={onOpenMechatronicRose || (() => window.dispatchEvent(new CustomEvent('open-mechatronic-rose-modal')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Configurator Interactiv de Trandafir Mecatronic cu Petale Motorizate & Senzor de Puls Cardiac"
+                  >
+                    <MechatronicRoseIcon size={16} color="#f43f5e" />
+                    <span>Trandafir Mecatronic & Puls</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    id="btn-hero-open-kaleidoscope-telescope"
+                    onClick={onOpenKaleidoscope || (() => window.dispatchEvent(new CustomEvent('open-kaleidoscope-modal')))}
+                    className="btn btn-secondary btn-md hero-tray-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}
+                    title="Configurator Interactiv de Micro-Telescop Caleidoscopic Integrat în Tija Trandafirului Central"
+                  >
+                    <MicroTelescopeIcon size={16} color="#f59e0b" />
+                    <span>Micro-Telescop Caleidoscopic</span>
+                  </button>
+                  <Link to="/colectie" className="btn btn-sm hero-tray-btn" style={{ color: 'var(--text-muted)', textDecoration: 'underline', whiteSpace: 'nowrap' }}>
+                    Toată Colecția →
+                  </Link>
+                </div>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>

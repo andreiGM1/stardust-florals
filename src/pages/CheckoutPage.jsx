@@ -996,9 +996,9 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
 
       {/* Form Container */}
       <div className="container" style={{ maxWidth: '1060px' }}>
-        <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '36px', alignItems: 'start' }}>
+        <form onSubmit={handleSubmit} className="checkout-layout-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '36px', alignItems: 'start' }}>
           {/* Left Column: Form Fields */}
-          <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-light)', borderRadius: '24px', padding: '36px', boxShadow: 'var(--shadow-sm)' }}>
+          <div className="checkout-main-column checkout-card-box" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-light)', borderRadius: '24px', padding: '36px', boxShadow: 'var(--shadow-sm)' }}>
             
             {/* Step 1: Bouquet & Color */}
             <div style={{ marginBottom: '32px' }}>
@@ -3145,7 +3145,7 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
                     })}
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                  <div className="checkout-date-slot-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                     <div>
                       <label htmlFor="input-delivery-date" style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                         Data Evenimentului
@@ -3812,8 +3812,8 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
           </div>
 
           {/* Right Column: Sticky Summary & Checkout */}
-          <div style={{ position: 'sticky', top: '100px' }}>
-            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-light)', borderRadius: '24px', padding: '30px', boxShadow: 'var(--shadow-md)' }}>
+          <div className="checkout-summary-column" style={{ position: 'sticky', top: '100px' }}>
+            <div className="checkout-card-box" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-light)', borderRadius: '24px', padding: '30px', boxShadow: 'var(--shadow-md)' }}>
               <h3 style={{ fontSize: '1.4rem', marginBottom: '14px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '12px' }}>
                 Sumar Comandă
               </h3>
