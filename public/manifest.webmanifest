@@ -1,0 +1,25 @@
+{
+  "name": "Stardust Florals™ — Trandafiri cu Sclipici Diamant",
+  "short_name": "Stardust Florals",
+  "description": "Trandafiri cu sclipici de diamant și felicitare unică cu cod QR video. Livrare rapidă în toată România.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0d0205",
+  "theme_color": "#e11d48",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/buchet-dual-noir-rouge-hero.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/buchet-dual-noir-rouge-hero.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}

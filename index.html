@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stardust Florals™ — Trandafiri cu Sclipici Diamant & Felicitare Video QR</title>
+  <meta name="description" content="Trandafiri proaspeți infuzați manual cu pulbere de diamant cosmetic și micro-LED-uri. Include gratuit felicitare fizică cu cod QR video personalizat. Livrare rapidă în toată România.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23e11d48'/><stop offset='100%25' stop-color='%23881337'/></linearGradient><linearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23fbbf24'/><stop offset='100%25' stop-color='%23d97706'/></linearGradient></defs><circle cx='50' cy='50' r='48' fill='%230f0508' stroke='url(%23g)' stroke-width='3'/><path d='M50 18 C65 24 75 40 70 56 C65 72 45 82 30 72 C18 62 20 40 32 30 C42 22 50 18 50 18 Z' fill='none' stroke='url(%23g)' stroke-width='4' stroke-linecap='round'/><path d='M50 30 C58 34 62 44 58 52 C54 60 42 64 36 58 C30 52 32 40 40 36 Z' fill='none' stroke='url(%23gold)' stroke-width='3'/><polygon points='50,38 52,46 60,48 52,50 50,58 48,50 40,48 48,46' fill='url(%23gold)'/></svg>">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#e11d48">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch((err) => {
+          console.warn('SW registration skipped:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
