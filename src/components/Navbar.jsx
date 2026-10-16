@@ -97,7 +97,7 @@ export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertific
             </button>
 
             <button 
-              className="btn btn-secondary btn-sm" 
+              className="btn btn-secondary btn-sm nav-action-desktop-only" 
               onClick={onOpenLeadModal} 
               title="Deblochează 10% Reducere Cadou"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', padding: '6px 11px', whiteSpace: 'nowrap' }}
@@ -107,7 +107,7 @@ export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertific
             </button>
 
             <button 
-              className="btn btn-secondary btn-sm" 
+              className="btn btn-secondary btn-sm nav-action-desktop-only" 
               onClick={toggleTheme} 
               title={theme === 'dark' ? 'Comută pe tema Rose Gold' : 'Comută pe tema Midnight Glam'}
               style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', padding: '6px 9px', whiteSpace: 'nowrap' }}
@@ -117,7 +117,7 @@ export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertific
             </button>
 
             <button 
-              className="btn btn-secondary btn-sm" 
+              className="btn btn-secondary btn-sm nav-action-desktop-only" 
               onClick={toggleCurrency} 
               title={currency === 'RON' ? 'Comută prețurile în Euro (€)' : 'Comută prețurile în Lei (RON)'}
               style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 9px', fontWeight: 800, fontSize: '0.78rem', whiteSpace: 'nowrap' }}
@@ -125,7 +125,7 @@ export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertific
               <span style={{ color: 'var(--rose-600)', letterSpacing: '0.5px' }}>{currency}</span>
             </button>
 
-            <Link to="/checkout" className="btn btn-primary btn-sm" style={{ padding: '6px 12px', display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '0.82rem', whiteSpace: 'nowrap' }}>
+            <Link to="/checkout" className="btn btn-primary btn-sm" style={{ padding: '7px 12px', display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '0.82rem', whiteSpace: 'nowrap', minHeight: '38px' }}>
               <ShoppingBag size={14} />
               <span>Comandă</span>
             </Link>
@@ -133,7 +133,8 @@ export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertific
             <button 
               className="mobile-toggle" 
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle Meniu"
+              aria-label="Deschide Meniu Navigare"
+              style={{ minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               {mobileOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
