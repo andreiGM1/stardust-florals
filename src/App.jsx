@@ -25,6 +25,7 @@ import SecretDrawerBoxModal from './components/SecretDrawerBoxModal';
 import SmokeCascadeModal from './components/SmokeCascadeModal';
 import CosmicLocketModal from './components/CosmicLocketModal';
 import MechatronicRoseModal from './components/MechatronicRoseModal';
+import KaleidoscopeTelescopeModal from './components/KaleidoscopeTelescopeModal';
 import { ConciergeBellIcon } from './components/CustomIcons';
 import HomePage from './pages/HomePage';
 import CollectionPage from './pages/CollectionPage';
@@ -69,6 +70,7 @@ export default function App() {
   const [isSmokeCascadeOpen, setIsSmokeCascadeOpen] = useState(false);
   const [isCosmicLocketOpen, setIsCosmicLocketOpen] = useState(false);
   const [isMechatronicRoseOpen, setIsMechatronicRoseOpen] = useState(false);
+  const [isKaleidoscopeModalOpen, setIsKaleidoscopeModalOpen] = useState(false);
 
   const handleOpenCertificate = (data = null) => {
     setCertModalData(data);
@@ -152,6 +154,9 @@ export default function App() {
     const handleOpenMechatronicRose = () => setIsMechatronicRoseOpen(true);
     window.addEventListener('open-mechatronic-rose-modal', handleOpenMechatronicRose);
 
+    const handleOpenKaleidoscope = () => setIsKaleidoscopeModalOpen(true);
+    window.addEventListener('open-kaleidoscope-modal', handleOpenKaleidoscope);
+
     // Auto trigger lead modal after 15s if user hasn't seen it
     const hasSeenLeadModal = localStorage.getItem('stardust_has_seen_lead_modal');
     let timer;
@@ -184,6 +189,7 @@ export default function App() {
       window.removeEventListener('open-smoke-cascade-modal', handleOpenSmokeCascade);
       window.removeEventListener('open-cosmic-locket-modal', handleOpenCosmicLocket);
       window.removeEventListener('open-mechatronic-rose-modal', handleOpenMechatronicRose);
+      window.removeEventListener('open-kaleidoscope-modal', handleOpenKaleidoscope);
       if (timer) clearTimeout(timer);
     };
   }, []);
@@ -212,6 +218,7 @@ export default function App() {
         onOpenSmokeCascade={() => setIsSmokeCascadeOpen(true)}
         onOpenCosmicLocket={() => setIsCosmicLocketOpen(true)}
         onOpenMechatronicRose={() => setIsMechatronicRoseOpen(true)}
+        onOpenKaleidoscope={() => setIsKaleidoscopeModalOpen(true)}
       />
       <main className="main-content">
         <Routes>
@@ -240,6 +247,7 @@ export default function App() {
                 onOpenSmokeCascade={() => setIsSmokeCascadeOpen(true)}
                 onOpenCosmicLocket={() => setIsCosmicLocketOpen(true)}
                 onOpenMechatronicRose={() => setIsMechatronicRoseOpen(true)}
+                onOpenKaleidoscope={() => setIsKaleidoscopeModalOpen(true)}
               />
             } 
           />
@@ -270,6 +278,7 @@ export default function App() {
                 onOpenSmokeCascade={() => setIsSmokeCascadeOpen(true)}
                 onOpenCosmicLocket={() => setIsCosmicLocketOpen(true)}
                 onOpenMechatronicRose={() => setIsMechatronicRoseOpen(true)}
+                onOpenKaleidoscope={() => setIsKaleidoscopeModalOpen(true)}
               />
             } 
           />
@@ -304,6 +313,10 @@ export default function App() {
                 onOpenAromaMedallion={() => setIsAromaMedallionModalOpen(true)}
                 onOpenHoloCard={() => setIsHoloCardModalOpen(true)}
                 onOpenSecretDrawer={() => setIsSecretDrawerModalOpen(true)}
+                onOpenSmokeCascade={() => setIsSmokeCascadeOpen(true)}
+                onOpenCosmicLocket={() => setIsCosmicLocketOpen(true)}
+                onOpenMechatronicRose={() => setIsMechatronicRoseOpen(true)}
+                onOpenKaleidoscope={() => setIsKaleidoscopeModalOpen(true)}
               />
             } 
           />
@@ -391,6 +404,10 @@ export default function App() {
       <MechatronicRoseModal
         isOpen={isMechatronicRoseOpen}
         onClose={() => setIsMechatronicRoseOpen(false)}
+      />
+      <KaleidoscopeTelescopeModal
+        isOpen={isKaleidoscopeModalOpen}
+        onClose={() => setIsKaleidoscopeModalOpen(false)}
       />
 
       {/* Floating Bottom-Right Concierge VIP Launcher Button (Stacked above WhatsApp) */}

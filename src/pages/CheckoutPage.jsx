@@ -27,6 +27,7 @@ import SecretDrawerBoxWidget, { DRAWER_CONTENTS, VELVET_LININGS, DRAWER_HANDLES 
 import SmokeCascadeSimulator, { MIST_LIGHTINGS, MIST_AROMAS, CASCADE_TRIGGERS, EMISSION_DURATIONS } from '../components/SmokeCascadeSimulator';
 import CosmicLocketSimulator, { LOCKET_METALS, LOCKET_SHAPES, DIAMOND_DUSTS, CHAIN_LENGTHS } from '../components/CosmicLocketSimulator';
 import MechatronicRoseSimulator, { MECHATRONIC_FINISHES, PULSE_PRESETS, PULSE_LIGHTINGS } from '../components/MechatronicRoseSimulator';
+import KaleidoscopeTelescopeSimulator, { TELESCOPE_FINISHES, GEMSTONE_PRISMS, MIRROR_GEOMETRIES } from '../components/KaleidoscopeTelescopeSimulator';
 import { 
   RoseIcon, CrownIcon, RibbonIcon, DiamondIcon, RingIcon, 
   SparkleIcon, CoffeeIcon, PartyIcon, CakeIcon, SecretMaskIcon, 
@@ -39,7 +40,7 @@ import {
   FlowerCareKitIcon, StemCut45Icon, CeramicMedallionIcon, AromaWavesIcon,
   HolographicPrismIcon, LenticularEyeIcon, SecretDrawerIcon, EngagementRingIcon,
   SmokeCascadeIcon, DryIceFlaskIcon, CosmicLocketIcon, JewelerLoupeIcon,
-  MechatronicRoseIcon, HeartbeatPulseIcon
+  MechatronicRoseIcon, HeartbeatPulseIcon, MicroTelescopeIcon, KaleidoscopeLensIcon
 } from '../components/CustomIcons';
 import ClimateDeliveryMapSimulator from '../components/ClimateDeliveryMapSimulator';
 
@@ -54,7 +55,7 @@ const DELIVERY_ZONES = [
   { id: 'national', name: 'Național — Curier Securizat 24h Climatizat (Cluj, Timișoara, Iași...)', transitMin: 1440, fee: 25, tag: '24h Climatizat' },
 ];
 
-export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal, onOpenAnniversary, onOpenLedSimulator, onOpenGourmetTasting, onOpenAudioEngraving, onOpenPopUpCard, onOpenMusicBox, onOpenUnboxing, onOpenPetalLaser, onOpenCareGuide, onOpenAromaMedallion, onOpenHoloCard, onOpenSecretDrawer, onOpenSmokeCascade, onOpenCosmicLocket, onOpenMechatronicRose }) {
+export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal, onOpenAnniversary, onOpenLedSimulator, onOpenGourmetTasting, onOpenAudioEngraving, onOpenPopUpCard, onOpenMusicBox, onOpenUnboxing, onOpenPetalLaser, onOpenCareGuide, onOpenAromaMedallion, onOpenHoloCard, onOpenSecretDrawer, onOpenSmokeCascade, onOpenCosmicLocket, onOpenMechatronicRose, onOpenKaleidoscope }) {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { formatPrice, currency } = useCurrency();
@@ -508,6 +509,39 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
   });
   const [showMechatronicRoseDrawer, setShowMechatronicRoseDrawer] = useState(false);
 
+  // Optical Stem Micro-Kaleidoscope Telescope State (Task 67)
+  const [kaleidoscopeConfig, setKaleidoscopeConfig] = useState(() => {
+    try {
+      const saved = localStorage.getItem('stardust_kaleidoscope_telescope');
+      return saved ? JSON.parse(saved) : {
+        finishId: TELESCOPE_FINISHES[0].id,
+        finishName: TELESCOPE_FINISHES[0].name,
+        prismId: GEMSTONE_PRISMS[0].id,
+        prismName: GEMSTONE_PRISMS[0].name,
+        geometryId: MIRROR_GEOMETRIES[0].id,
+        geometryName: MIRROR_GEOMETRIES[0].name,
+        secretMessage: 'Ești Universul Meu',
+        engravedCollar: 'Stardust Atelier • N° 7892',
+        focusClarity: 90,
+        totalPrice: 79
+      };
+    } catch {
+      return {
+        finishId: TELESCOPE_FINISHES[0].id,
+        finishName: TELESCOPE_FINISHES[0].name,
+        prismId: GEMSTONE_PRISMS[0].id,
+        prismName: GEMSTONE_PRISMS[0].name,
+        geometryId: MIRROR_GEOMETRIES[0].id,
+        geometryName: MIRROR_GEOMETRIES[0].name,
+        secretMessage: 'Ești Universul Meu',
+        engravedCollar: 'Stardust Atelier • N° 7892',
+        focusClarity: 90,
+        totalPrice: 79
+      };
+    }
+  });
+  const [showKaleidoscopeDrawer, setShowKaleidoscopeDrawer] = useState(false);
+
   // Gratitude Tip Jar state (Task 40)
   const [selectedTipId, setSelectedTipId] = useState('none');
   const [tipAmount, setTipAmount] = useState(0);
@@ -640,6 +674,10 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
       setSelectedAddons((prev) => prev.includes('floare-mecatronica-puls-cardiac') ? prev : [...prev, 'floare-mecatronica-puls-cardiac']);
     }
 
+    if (addonParam === 'micro-telescop-caleidoscopic-tija') {
+      setSelectedAddons((prev) => prev.includes('micro-telescop-caleidoscopic-tija') ? prev : [...prev, 'micro-telescop-caleidoscopic-tija']);
+    }
+
     if (addonsParam) {
       const ids = addonsParam.split(',').map((s) => s.trim()).filter(Boolean);
       setSelectedAddons((prev) => {
@@ -734,6 +772,9 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
     }
     if (addonId === 'floare-mecatronica-puls-cardiac' && mechatronicRoseConfig && mechatronicRoseConfig.totalPrice !== undefined) {
       return sum + mechatronicRoseConfig.totalPrice;
+    }
+    if (addonId === 'micro-telescop-caleidoscopic-tija' && kaleidoscopeConfig && kaleidoscopeConfig.totalPrice !== undefined) {
+      return sum + kaleidoscopeConfig.totalPrice;
     }
     const item = ADDONS.find((a) => a.id === addonId);
     return sum + (item ? item.price : 0);
@@ -1107,8 +1148,14 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
                   const isSecretDrawer = addon.id === 'cutie-secret-sertar-glisant';
                   const isSmokeCascade = addon.id === 'efect-fum-cascada-dry-ice';
                   const isCosmicLocket = addon.id === 'pandantiv-capsula-diamant-cosmic';
+                  const isMechatronicRose = addon.id === 'floare-mecatronica-puls-cardiac';
+                  const isKaleidoscopeTelescope = addon.id === 'micro-telescop-caleidoscopic-tija';
                   let displayPrice = addon.price;
-                  if (isCosmicLocket && cosmicLocketConfig && cosmicLocketConfig.totalPrice !== undefined) {
+                  if (isKaleidoscopeTelescope && kaleidoscopeConfig && kaleidoscopeConfig.totalPrice !== undefined) {
+                    displayPrice = kaleidoscopeConfig.totalPrice;
+                  } else if (isMechatronicRose && mechatronicRoseConfig && mechatronicRoseConfig.totalPrice !== undefined) {
+                    displayPrice = mechatronicRoseConfig.totalPrice;
+                  } else if (isCosmicLocket && cosmicLocketConfig && cosmicLocketConfig.totalPrice !== undefined) {
                     displayPrice = cosmicLocketConfig.totalPrice;
                   } else if (isSmokeCascade && smokeCascadeConfig && smokeCascadeConfig.totalPrice !== undefined) {
                     displayPrice = smokeCascadeConfig.totalPrice;
@@ -1198,11 +1245,29 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
                               if (!isChecked && isCosmicLocket) {
                                 setShowCosmicLocketDrawer(true);
                               }
+                              if (!isChecked && isMechatronicRose) {
+                                setShowMechatronicRoseDrawer(true);
+                              }
+                              if (!isChecked && isKaleidoscopeTelescope) {
+                                setShowKaleidoscopeDrawer(true);
+                              }
                             }}
                             style={{ accentColor: '#e11d48', width: '16px', height: '16px' }}
                           />
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                             <span style={{ fontSize: '0.92rem', fontWeight: 600 }}>{addon.name}</span>
+                            {isKaleidoscopeTelescope && (
+                              <span style={{ fontSize: '0.72rem', backgroundColor: '#fffbeb', background: 'linear-gradient(135deg, #fffbeb, #fef3c7)', color: '#92400e', padding: '2px 8px', borderRadius: '10px', fontWeight: 800, border: '1px solid #f59e0b', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                                <MicroTelescopeIcon size={12} color="#92400e" />
+                                <span>OPTICĂ ETERICĂ • MICRO-TELESCOP CALEIDOSCOPIC ÎN TIJĂ</span>
+                              </span>
+                            )}
+                            {isMechatronicRose && (
+                              <span style={{ fontSize: '0.72rem', backgroundColor: '#fff1f2', background: 'linear-gradient(135deg, #fff1f2, #ffe4e6)', color: '#9f1239', padding: '2px 8px', borderRadius: '10px', fontWeight: 800, border: '1px solid #f43f5e', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                                <MechatronicRoseIcon size={12} color="#9f1239" />
+                                <span>ARTĂ CINETICĂ • PETALE MOTORIZATE & PULS CARDIAC</span>
+                              </span>
+                            )}
                             {isCosmicLocket && (
                               <span style={{ fontSize: '0.72rem', backgroundColor: '#fdf2f8', background: 'linear-gradient(135deg, #fdf2f8, #fbcfe8)', color: '#9f1239', padding: '2px 8px', borderRadius: '10px', fontWeight: 800, border: '1px solid #f43f5e', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                                 <CosmicLocketIcon size={12} color="#9f1239" />
@@ -2259,6 +2324,188 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
                                 onApplyConfig={(data) => {
                                   setCosmicLocketConfig(data);
                                   setShowCosmicLocketDrawer(false);
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Mechatronic Motorized Rose & Heartbeat Configuration Display (Task 66) */}
+                      {isMechatronicRose && isChecked && (
+                        <div 
+                          id="checkout-mechatronic-rose-preview-card"
+                          style={{
+                            marginTop: '8px',
+                            background: 'radial-gradient(circle at 50% 0%, #250518 0%, #0c0209 100%)',
+                            border: '1.5px solid rgba(244, 63, 94, 0.45)',
+                            borderRadius: '16px',
+                            padding: '16px 20px',
+                            color: '#ffffff',
+                            boxShadow: '0 8px 24px rgba(244, 63, 94, 0.25)'
+                          }}
+                        >
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: showMechatronicRoseDrawer ? '16px' : '0' }}>
+                            <div>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.76rem', color: '#fda4af', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                <MechatronicRoseIcon size={14} color="#f43f5e" />
+                                <span>ARTĂ CINETICĂ • FLOARE MECATRONICĂ BIO-CARDIACĂ:</span>
+                              </div>
+                              <div style={{ fontFamily: 'Cinzel, serif', fontWeight: 800, fontSize: '1.05rem', color: '#fbcfe8', marginTop: '4px', letterSpacing: '0.5px' }}>
+                                {mechatronicRoseConfig?.finishName?.split('(')[0] || 'Mătase Roșie & Titan Aurit 24K'} • {mechatronicRoseConfig?.bpm || 68} BPM ({mechatronicRoseConfig?.presetName || 'Puls Cald de Odihnă'})
+                              </div>
+                              <div style={{ fontStyle: 'italic', fontSize: '0.82rem', color: '#fde68a', marginTop: '2px' }}>
+                                Soclu senzor: „{mechatronicRoseConfig?.sensorDedication || 'Inima mea bate doar pentru tine'}” • {mechatronicRoseConfig?.senderName || 'Al tău pentru totdeauna'}
+                              </div>
+                              <span style={{ fontSize: '0.74rem', color: 'rgba(255,255,255,0.7)', marginTop: '4px', display: 'block' }}>
+                                Petale flexibile mecatronice • Ritm sistolic sincronizat • Iluminare: {mechatronicRoseConfig?.lightingName || 'Aura Caldă Rubiniu'}
+                              </span>
+                            </div>
+
+                            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                              <button
+                                type="button"
+                                id="btn-checkout-launch-mechatronic-modal"
+                                onClick={onOpenMechatronicRose || (() => window.dispatchEvent(new CustomEvent('open-mechatronic-rose-modal')))}
+                                className="btn btn-secondary btn-sm"
+                                style={{
+                                  border: '1px solid rgba(244, 63, 94, 0.5)',
+                                  color: '#fda4af',
+                                  background: 'rgba(244, 63, 94, 0.15)',
+                                  borderRadius: '10px',
+                                  padding: '6px 12px',
+                                  fontSize: '0.78rem',
+                                  fontWeight: 700,
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  cursor: 'pointer',
+                                  whiteSpace: 'nowrap !important'
+                                }}
+                              >
+                                <Eye size={13} color="#f43f5e" />
+                                <span>Lansează Simulatorul</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                id="btn-toggle-mechatronic-customizer"
+                                onClick={() => setShowMechatronicRoseDrawer(!showMechatronicRoseDrawer)}
+                                className="btn btn-gold btn-sm"
+                                style={{ padding: '6px 14px', fontSize: '0.8rem', whiteSpace: 'nowrap !important', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                              >
+                                {showMechatronicRoseDrawer ? <span>Ascunde Simulatorul</span> : (
+                                  <>
+                                    <Edit3 size={13} />
+                                    <span>Personalizează Floarea</span>
+                                  </>
+                                )}
+                              </button>
+                            </div>
+                          </div>
+
+                          {showMechatronicRoseDrawer && (
+                            <div 
+                              id="checkout-mechatronic-rose-customizer-drawer"
+                              style={{ marginTop: '16px', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '16px' }}
+                            >
+                              <MechatronicRoseSimulator 
+                                isEmbedded={true}
+                                initialData={mechatronicRoseConfig}
+                                onApplyConfig={(data) => {
+                                  setMechatronicRoseConfig(data);
+                                  setShowMechatronicRoseDrawer(false);
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Optical Stem Micro-Kaleidoscope Telescope Configuration Display (Task 67) */}
+                      {isKaleidoscopeTelescope && isChecked && (
+                        <div 
+                          id="checkout-kaleidoscope-preview-card"
+                          style={{
+                            marginTop: '8px',
+                            background: 'radial-gradient(circle at 50% 0%, #1c1306 0%, #080501 100%)',
+                            border: '1.5px solid rgba(245, 158, 11, 0.45)',
+                            borderRadius: '16px',
+                            padding: '16px 20px',
+                            color: '#ffffff',
+                            boxShadow: '0 8px 24px rgba(245, 158, 11, 0.25)'
+                          }}
+                        >
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: showKaleidoscopeDrawer ? '16px' : '0' }}>
+                            <div>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.76rem', color: '#fef3c7', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                <MicroTelescopeIcon size={14} color="#f59e0b" />
+                                <span>OPTICĂ DE LUX • MICRO-TELESCOP CALEIDOSCOPIC ÎN TIJĂ:</span>
+                              </div>
+                              <div style={{ fontFamily: 'Cinzel, serif', fontWeight: 800, fontSize: '1.05rem', color: '#fef3c7', marginTop: '4px', letterSpacing: '0.5px' }}>
+                                {kaleidoscopeConfig?.finishName?.split('(')[0] || 'Alamă Aurită 24K'} • {kaleidoscopeConfig?.prismName?.split('(')[0] || 'Diamant Alb & Petale Rubinii'}
+                              </div>
+                              <div style={{ fontStyle: 'italic', fontSize: '0.82rem', color: '#fde68a', marginTop: '2px' }}>
+                                Mesaj Ocular: „{kaleidoscopeConfig?.secretMessage || 'Ești Universul Meu'}” • Colier: {kaleidoscopeConfig?.engravedCollar || 'Stardust Atelier'}
+                              </div>
+                              <span style={{ fontSize: '0.74rem', color: 'rgba(255,255,255,0.7)', marginTop: '4px', display: 'block' }}>
+                                Geometrie: {kaleidoscopeConfig?.geometryName?.split('(')[0] || 'Hexagramă'} • Claritate: {kaleidoscopeConfig?.focusClarity || 90}% • Montat în tija trandafirului central
+                              </span>
+                            </div>
+
+                            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                              <button
+                                type="button"
+                                id="btn-checkout-launch-kaleidoscope-modal"
+                                onClick={onOpenKaleidoscope || (() => window.dispatchEvent(new CustomEvent('open-kaleidoscope-modal')))}
+                                className="btn btn-secondary btn-sm"
+                                style={{
+                                  border: '1px solid rgba(245, 158, 11, 0.5)',
+                                  color: '#fef3c7',
+                                  background: 'rgba(245, 158, 11, 0.15)',
+                                  borderRadius: '10px',
+                                  padding: '6px 12px',
+                                  fontSize: '0.78rem',
+                                  fontWeight: 700,
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  cursor: 'pointer',
+                                  whiteSpace: 'nowrap !important'
+                                }}
+                              >
+                                <Eye size={13} color="#f59e0b" />
+                                <span>Lansează Simulatorul</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                id="btn-toggle-kaleidoscope-customizer"
+                                onClick={() => setShowKaleidoscopeDrawer(!showKaleidoscopeDrawer)}
+                                className="btn btn-gold btn-sm"
+                                style={{ padding: '6px 14px', fontSize: '0.8rem', whiteSpace: 'nowrap !important', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                              >
+                                {showKaleidoscopeDrawer ? <span>Ascunde Simulatorul</span> : (
+                                  <>
+                                    <Edit3 size={13} />
+                                    <span>Personalizează Telescopul</span>
+                                  </>
+                                )}
+                              </button>
+                            </div>
+                          </div>
+
+                          {showKaleidoscopeDrawer && (
+                            <div 
+                              id="checkout-kaleidoscope-customizer-drawer"
+                              style={{ marginTop: '16px', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '16px' }}
+                            >
+                              <KaleidoscopeTelescopeSimulator 
+                                isEmbedded={true}
+                                initialConfig={kaleidoscopeConfig}
+                                onApplyConfig={(data) => {
+                                  setKaleidoscopeConfig(data);
+                                  setShowKaleidoscopeDrawer(false);
                                 }}
                               />
                             </div>
@@ -3596,7 +3843,11 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
                     const item = ADDONS.find((a) => a.id === id);
                     if (!item) return null;
                     let price = item.price;
-                    if (id === 'pandantiv-capsula-diamant-cosmic' && cosmicLocketConfig && cosmicLocketConfig.totalPrice !== undefined) {
+                    if (id === 'micro-telescop-caleidoscopic-tija' && kaleidoscopeConfig && kaleidoscopeConfig.totalPrice !== undefined) {
+                      price = kaleidoscopeConfig.totalPrice;
+                    } else if (id === 'floare-mecatronica-puls-cardiac' && mechatronicRoseConfig && mechatronicRoseConfig.totalPrice !== undefined) {
+                      price = mechatronicRoseConfig.totalPrice;
+                    } else if (id === 'pandantiv-capsula-diamant-cosmic' && cosmicLocketConfig && cosmicLocketConfig.totalPrice !== undefined) {
                       price = cosmicLocketConfig.totalPrice;
                     } else if (id === 'efect-fum-cascada-dry-ice' && smokeCascadeConfig && smokeCascadeConfig.totalPrice !== undefined) {
                       price = smokeCascadeConfig.totalPrice;
@@ -3628,6 +3879,34 @@ export default function CheckoutPage({ onOpenCertificateModal, onOpenReviewModal
                       </div>
                     );
                   })}
+                  {selectedAddons.includes('floare-mecatronica-puls-cardiac') && (
+                    <div style={{ marginTop: '8px', background: 'rgba(244, 63, 94, 0.1)', border: '1px dashed rgba(244, 63, 94, 0.4)', borderRadius: '10px', padding: '8px 10px', fontSize: '0.78rem', color: 'var(--text-main)' }}>
+                      <span style={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', color: '#e11d48' }}>
+                        <MechatronicRoseIcon size={13} color="#e11d48" />
+                        <span>Trandafir Mecatronic & Puls Sincronizat:</span>
+                      </span>
+                      <span style={{ fontWeight: 700, color: '#be123c', display: 'block', marginTop: '2px' }}>
+                        {mechatronicRoseConfig?.finishName?.split('(')[0]} • {mechatronicRoseConfig?.bpm} BPM ({mechatronicRoseConfig?.presetName})
+                      </span>
+                      <span style={{ fontStyle: 'italic', fontSize: '0.74rem', color: 'var(--text-muted)', display: 'block', marginTop: '2px' }}>
+                        Senzor: „{mechatronicRoseConfig?.sensorDedication}” • {mechatronicRoseConfig?.senderName}
+                      </span>
+                    </div>
+                  )}
+                  {selectedAddons.includes('micro-telescop-caleidoscopic-tija') && (
+                    <div style={{ marginTop: '8px', background: 'rgba(245, 158, 11, 0.1)', border: '1px dashed rgba(245, 158, 11, 0.4)', borderRadius: '10px', padding: '8px 10px', fontSize: '0.78rem', color: 'var(--text-main)' }}>
+                      <span style={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', color: '#d97706' }}>
+                        <MicroTelescopeIcon size={13} color="#d97706" />
+                        <span>Micro-Telescop Caleidoscopic în Tijă:</span>
+                      </span>
+                      <span style={{ fontWeight: 700, color: '#b45309', display: 'block', marginTop: '2px' }}>
+                        {kaleidoscopeConfig?.finishName?.split('(')[0]} • {kaleidoscopeConfig?.prismName?.split('(')[0]}
+                      </span>
+                      <span style={{ fontStyle: 'italic', fontSize: '0.74rem', color: 'var(--text-muted)', display: 'block', marginTop: '2px' }}>
+                        Mesaj: „{kaleidoscopeConfig?.secretMessage}” • Colier: {kaleidoscopeConfig?.engravedCollar}
+                      </span>
+                    </div>
+                  )}
                   {selectedAddons.includes('pandantiv-capsula-diamant-cosmic') && (
                     <div style={{ marginTop: '8px', background: 'rgba(244, 63, 94, 0.1)', border: '1px dashed rgba(244, 63, 94, 0.4)', borderRadius: '10px', padding: '8px 10px', fontSize: '0.78rem', color: 'var(--text-main)' }}>
                       <span style={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', color: '#e11d48' }}>

@@ -23,6 +23,7 @@ import SecretDrawerBoxWidget from '../components/SecretDrawerBoxWidget';
 import SmokeCascadeSimulator from '../components/SmokeCascadeSimulator';
 import CosmicLocketSimulator from '../components/CosmicLocketSimulator';
 import MechatronicRoseSimulator from '../components/MechatronicRoseSimulator';
+import KaleidoscopeTelescopeSimulator from '../components/KaleidoscopeTelescopeSimulator';
 import { useCurrency } from '../context/CurrencyContext';
 import { 
   RoseIcon, DiamondIcon, CrownIcon, SparkleIcon, GiftBoxIcon, 
@@ -35,11 +36,11 @@ import {
   FlowerCareKitIcon, StemCut45Icon, CeramicMedallionIcon, AromaWavesIcon,
   HolographicPrismIcon, LenticularEyeIcon, SecretDrawerIcon, EngagementRingIcon,
   SmokeCascadeIcon, DryIceFlaskIcon, CosmicLocketIcon, JewelerLoupeIcon,
-  MechatronicRoseIcon, HeartbeatPulseIcon
+  MechatronicRoseIcon, HeartbeatPulseIcon, MicroTelescopeIcon, KaleidoscopeLensIcon
 } from '../components/CustomIcons';
 import ClimateDeliveryMapSimulator from '../components/ClimateDeliveryMapSimulator';
 
-export default function HomePage({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertificateModal, onOpenReviewModal, onOpenConcierge, onOpenLoveLetter, onOpenAnniversary, onOpenLedSimulator, onOpenGourmetTasting, onOpenAudioEngraving, onOpenPopUpCard, onOpenMusicBox, onOpenUnboxing, onOpenPetalLaser, onOpenCareGuide, onOpenAromaMedallion, onOpenHoloCard, onOpenSecretDrawer, onOpenSmokeCascade, onOpenCosmicLocket, onOpenMechatronicRose }) {
+export default function HomePage({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertificateModal, onOpenReviewModal, onOpenConcierge, onOpenLoveLetter, onOpenAnniversary, onOpenLedSimulator, onOpenGourmetTasting, onOpenAudioEngraving, onOpenPopUpCard, onOpenMusicBox, onOpenUnboxing, onOpenPetalLaser, onOpenCareGuide, onOpenAromaMedallion, onOpenHoloCard, onOpenSecretDrawer, onOpenSmokeCascade, onOpenCosmicLocket, onOpenMechatronicRose, onOpenKaleidoscope }) {
   const { formatPrice } = useCurrency();
   const [openFaqIndices, setOpenFaqIndices] = useState([0]);
   const [selectedGalleryImg, setSelectedGalleryImg] = useState(null);
@@ -275,6 +276,17 @@ export default function HomePage({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertif
                 >
                   <MechatronicRoseIcon size={18} color="#f43f5e" />
                   <span>Trandafir Mecatronic & Puls</span>
+                </button>
+                <button 
+                  type="button" 
+                  id="btn-hero-open-kaleidoscope-telescope"
+                  onClick={onOpenKaleidoscope || (() => window.dispatchEvent(new CustomEvent('open-kaleidoscope-modal')))}
+                  className="btn btn-secondary btn-lg"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  title="Configurator Interactiv de Micro-Telescop Caleidoscopic Integrat în Tija Trandafirului Central"
+                >
+                  <MicroTelescopeIcon size={18} color="#f59e0b" />
+                  <span>Micro-Telescop Caleidoscopic</span>
                 </button>
                 <Link to="/colectie" className="btn btn-sm" style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}>
                   Toată Colecția →
@@ -1411,6 +1423,102 @@ export default function HomePage({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertif
               >
                 <CalendarHeartIcon size={20} color="#ffffff" />
                 <span>Programează Aniversarea Ei</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Micro-Telescope Stem Showcase Section (Task 67) */}
+      <section 
+        id="kaleidoscope-telescope-showcase-section"
+        className="section" 
+        style={{ 
+          background: 'radial-gradient(circle at 70% 50%, rgba(245, 158, 11, 0.12), transparent 70%), linear-gradient(135deg, #090d16 0%, #030712 100%)', 
+          borderTop: '1px solid rgba(245, 158, 11, 0.25)',
+          borderBottom: '1px solid rgba(245, 158, 11, 0.25)',
+          padding: '60px 0' 
+        }}
+      >
+        <div className="container">
+          <div 
+            style={{ 
+              background: 'rgba(255, 255, 255, 0.03)', 
+              border: '1.5px solid rgba(245, 158, 11, 0.35)', 
+              borderRadius: '26px', 
+              padding: '36px 40px', 
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(245, 158, 11, 0.15)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '28px'
+            }}
+          >
+            <div style={{ display: 'flex', gap: '22px', alignItems: 'center', flex: '1 1 500px' }}>
+              <div style={{ position: 'relative', flexShrink: 0 }}>
+                <div 
+                  style={{ 
+                    width: '64px', 
+                    height: '64px', 
+                    borderRadius: '20px', 
+                    border: '2px solid #f59e0b', 
+                    background: 'linear-gradient(135deg, #d97706, #78350f)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    boxShadow: '0 0 25px rgba(245, 158, 11, 0.5)' 
+                  }}
+                >
+                  <MicroTelescopeIcon size={32} color="#fef3c7" />
+                </div>
+              </div>
+              <div>
+                <div 
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    background: 'rgba(245, 158, 11, 0.2)', 
+                    border: '1px solid rgba(245, 158, 11, 0.4)', 
+                    padding: '4px 12px', 
+                    borderRadius: '20px', 
+                    fontSize: '0.74rem', 
+                    color: '#fef3c7', 
+                    fontWeight: 800, 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '0.5px', 
+                    marginBottom: '8px' 
+                  }}
+                >
+                  <KaleidoscopeLensIcon size={14} color="#f59e0b" />
+                  <span>OPTICĂ ETERICĂ DE LUX • MICRO-TELESCOP ÎN TIJĂ</span>
+                </div>
+                <h3 style={{ fontSize: '1.55rem', margin: '0 0 8px', color: '#ffffff', letterSpacing: '-0.01em' }}>
+                  Micro-Telescop Caleidoscopic din Alamă Aurită 24K
+                </h3>
+                <p style={{ color: '#cbd5e1', fontSize: '0.92rem', margin: 0, lineHeight: 1.55, maxWidth: '620px' }}>
+                  Ascuns în tija rigidă a trandafirului central: când privești prin lentila de safir, descoperi un mozaic infinit de diamante și paiete de aur, plus un <strong>mesaj secret nanometric</strong> iluminat de o prismă laterală.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <button
+                type="button"
+                id="btn-homepage-open-kaleidoscope-showcase"
+                onClick={onOpenKaleidoscope || (() => window.dispatchEvent(new CustomEvent('open-kaleidoscope-modal')))}
+                className="btn btn-gold btn-lg"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  boxShadow: '0 8px 25px rgba(245, 158, 11, 0.4)',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                <MicroTelescopeIcon size={20} color="#0f172a" />
+                <span>Configurează Micro-Telescopul (+79 RON)</span>
               </button>
             </div>
           </div>

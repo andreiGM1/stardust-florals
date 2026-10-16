@@ -138,6 +138,7 @@ export const COLOR_OPTIONS = [
 ];
 
 export const ADDONS = [
+  { id: 'micro-telescop-caleidoscopic-tija', name: 'Micro-Telescop Caleidoscopic din Alamă Aurită Integrat în Tija Trandafirului', price: 79, isFeatured: true, isKaleidoscopeTelescopeCustom: true },
   { id: 'floare-mecatronica-puls-cardiac', name: 'Trandafir Mecatronic cu Petale Motorizate & Puls Cardiac Sincronizat', price: 95, isFeatured: true, isMechatronicRoseCustom: true },
   { id: 'pandantiv-capsula-diamant-cosmic', name: 'Pandantiv Secret cu Capsulă de Pulbere de Diamant Cosmic & Mesaj Micro-Gravat', price: 69, isFeatured: true, isCosmicLocketCustom: true },
   { id: 'efect-fum-cascada-dry-ice', name: 'Efect Teatral „Smoke & Dry Ice Cascade” — Vapori Reci Aromatizați la Deschidere', price: 59, isFeatured: true, isSmokeCascadeCustom: true },

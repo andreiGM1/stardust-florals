@@ -1685,5 +1685,72 @@ export function HeartbeatPulseIcon({ size = 18, color = 'currentColor', style = 
   );
 }
 
+// 59. Precision Optical Micro-Telescope Icon (Task 67)
+export function MicroTelescopeIcon({ size = 18, color = 'currentColor', style = {}, className = '' }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke={color} 
+      strokeWidth="1.8" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style }}
+      className={`luxury-icon micro-telescope-icon ${className}`}
+    >
+      {/* Stem Integration Line */}
+      <path d="M4 20L8 16" strokeWidth="1.5" opacity="0.5" />
+      {/* Main Brass Barrel Cylinder */}
+      <path d="M7 17l6.5-6.5" strokeWidth="2.4" />
+      {/* Knurled Adjustment Ring */}
+      <path d="M10.5 10.5l3 3" strokeWidth="2" opacity="0.9" />
+      <path d="M11.5 9.5l3 3" strokeWidth="1.2" />
+      {/* Eyepiece / Objective Lens Outer Collar */}
+      <path d="M13 11l5-5" strokeWidth="2.8" />
+      <path d="M17 5l4 4" strokeWidth="2" />
+      {/* Lens Optical Sapphire Flare */}
+      <circle cx="19.5" cy="6.5" r="2" fill={color} fillOpacity="0.25" strokeWidth="1.2" />
+      {/* Ambient Light Collector Side Prism */}
+      <path d="M14 14l-2 1.5 1 2z" fill={color} fillOpacity="0.3" strokeWidth="1" />
+      {/* Sparkle Glint at Lens Focal Point */}
+      <path d="M21 3l.5 1.5L23 5l-1.5.5L21 7l-.5-1.5L19 5l1.5-.5z" fill={color} stroke="none" />
+    </svg>
+  );
+}
+
+// 60. Kaleidoscope Geometric Prism Mandala Icon (Task 67)
+export function KaleidoscopeLensIcon({ size = 18, color = 'currentColor', style = {}, className = '' }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke={color} 
+      strokeWidth="1.8" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style }}
+      className={`luxury-icon kaleidoscope-lens-icon ${className}`}
+    >
+      {/* Outer Eyepiece Reticle Circle */}
+      <circle cx="12" cy="12" r="9.5" strokeWidth="1.6" />
+      {/* Inner Optical Chamber Circle */}
+      <circle cx="12" cy="12" r="5" strokeWidth="1.2" strokeDasharray="1.5 2" opacity="0.75" />
+      {/* Symmetric 6-Point Prism Mirror Facets */}
+      <polygon points="12 3 19.8 7.5 19.8 16.5 12 21 4.2 16.5 4.2 7.5" strokeWidth="1.2" opacity="0.6" />
+      {/* Triangular Prism Diamond Axes */}
+      <line x1="12" y1="2.5" x2="12" y2="21.5" strokeWidth="1.2" opacity="0.5" />
+      <line x1="3.8" y1="7.25" x2="20.2" y2="16.75" strokeWidth="1.2" opacity="0.5" />
+      <line x1="3.8" y1="16.75" x2="20.2" y2="7.25" strokeWidth="1.2" opacity="0.5" />
+      {/* Central Secret Message Node / Diamond Core */}
+      <circle cx="12" cy="12" r="1.8" fill={color} stroke="none" />
+    </svg>
+  );
+}
+
+
 
 

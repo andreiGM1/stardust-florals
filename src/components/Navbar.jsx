@@ -3,9 +3,9 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { Sparkles, ShoppingBag, Menu, X, Gift, PhoneCall, Moon, Sun, Smartphone, Star, Truck, Rocket, Compass } from 'lucide-react';
 import { useCurrency } from '../context/CurrencyContext';
 import EmergencyAnnouncementBar from './EmergencyAnnouncementBar';
-import { RoseIcon, SparkleIcon, GiftBoxIcon, ScrollDiplomaIcon, ConciergeBellIcon, ParchmentScrollIcon, CalendarHeartIcon, FairyLightsIcon, ChampagneFlutesIcon, AudioWaveformIcon, PopUpGreetingCardIcon, MusicBoxCrankIcon, UnboxingVaultIcon, LaserPetalEngraverIcon, FlowerCareKitIcon, CeramicMedallionIcon, HolographicPrismIcon, SecretDrawerIcon, SmokeCascadeIcon, CosmicLocketIcon, MechatronicRoseIcon } from './CustomIcons';
+import { RoseIcon, SparkleIcon, GiftBoxIcon, ScrollDiplomaIcon, ConciergeBellIcon, ParchmentScrollIcon, CalendarHeartIcon, FairyLightsIcon, ChampagneFlutesIcon, AudioWaveformIcon, PopUpGreetingCardIcon, MusicBoxCrankIcon, UnboxingVaultIcon, LaserPetalEngraverIcon, FlowerCareKitIcon, CeramicMedallionIcon, HolographicPrismIcon, SecretDrawerIcon, SmokeCascadeIcon, CosmicLocketIcon, MechatronicRoseIcon, MicroTelescopeIcon } from './CustomIcons';
 
-export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertificateModal, onOpenConcierge, onOpenLoveLetter, onOpenAnniversary, onOpenLedSimulator, onOpenGourmetTasting, onOpenAudioEngraving, onOpenPopUpCard, onOpenMusicBox, onOpenUnboxing, onOpenPetalLaser, onOpenCareGuide, onOpenAromaMedallion, onOpenHoloCard, onOpenSecretDrawer, onOpenSmokeCascade, onOpenCosmicLocket, onOpenMechatronicRose }) {
+export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertificateModal, onOpenConcierge, onOpenLoveLetter, onOpenAnniversary, onOpenLedSimulator, onOpenGourmetTasting, onOpenAudioEngraving, onOpenPopUpCard, onOpenMusicBox, onOpenUnboxing, onOpenPetalLaser, onOpenCareGuide, onOpenAromaMedallion, onOpenHoloCard, onOpenSecretDrawer, onOpenSmokeCascade, onOpenCosmicLocket, onOpenMechatronicRose, onOpenKaleidoscope }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('stardust_theme') || 'light';
@@ -482,6 +482,22 @@ export default function Navbar({ onOpenLeadModal, onOpenGiftQuiz, onOpenCertific
               >
                 <MechatronicRoseIcon size={18} color="#f43f5e" />
                 <span>Trandafir Mecatronic & Puls Cardiac Live</span>
+              </button>
+            </li>
+            <li>
+              <button 
+                type="button"
+                onClick={() => {
+                  handleLinkClick();
+                  if (onOpenKaleidoscope) onOpenKaleidoscope();
+                  else window.dispatchEvent(new CustomEvent('open-kaleidoscope-modal'));
+                }}
+                className="nav-link" 
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', padding: '12px 0' }}
+                id="btn-drawer-kaleidoscope-telescope"
+              >
+                <MicroTelescopeIcon size={18} color="#f59e0b" />
+                <span>Micro-Telescop Caleidoscopic în Tijă (Mesaj Secret)</span>
               </button>
             </li>
             <li style={{ padding: '8px 0' }}>

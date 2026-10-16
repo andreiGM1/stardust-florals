@@ -2,6 +2,161 @@
 
 Documentație cronologică a tuturor îmbunătățirilor aplicate proiectului de către agentul de optimizare autonomă.
 
+## 🕒 Ciclul 48: Configurator Interactiv de Micro-Telescop Caleidoscopic Integrat în Tija Trandafirului Central
+- **Data și Ora:** 12 Octombrie 2026, ora 12:10 (EEST)
+- **Task Implementat:** Task 67: Configurator Interactiv de Micro-Telescop Caleidoscopic Integrat în Tija Trandafirului Central
+- **Obiectiv & Rezultat:** Crearea unui simulator optic interactiv complet și configurator de precizie pentru un micro-telescop caleidoscopic din alamă aurită 24K ascuns în tija rigidă a trandafirului central din buchetul Stardust. Când destinatarul privește prin lentila de safir 9 Mohs și rotește inelul mecanic zimțat, descoperă un mozaic caleidoscopic infinit de cristale de diamant, paiete de foiță de aur și petale de trandafir, în inima căruia este revelat un micro-mesaj caligrafic secret iluminat de o prismă laterală de safir. Sistemul include vizualizare duală pe canvas HTML5 (Vedere Ocular 360° cu rotire liberă prin touch/cursor și focalizare nanometrică vs. Vedere Tijă Florală & Finisaj Exterior), 3 finisaje mecanice din metale nobile, 3 compoziții de cristale prismatice, 3 geometrii de oglinzi simetrice (Hexagramă, Octogon, Dodecagramă), micro-gravură laser pe colierul metalic, sintetizator de sunet Web Audio API (mecanism mecanic de alamă zimțată și clinchet armonic de cristal), și integrare completă pe HomePage, Navbar și Checkout cu recalculare automată de preț în timp real.
+
+### 🚀 1. Funcționalități & Modificări Implementate:
+
+1. **Componenta de Bază [KaleidoscopeTelescopeSimulator.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/KaleidoscopeTelescopeSimulator.jsx):**
+   - **Simulator Optic Caleidoscopic (Canvas HTML5 2D cu Rotație 360° & Focalizare):**
+     - Ocular circular din alamă aurită/titan cu gradare unghiulară, inel zimțat și reticul optic milimetric.
+     - Simetrie radială de reflexie în oglindă calculată trigonometric pentru 6 segmente (Hexagramă), 8 segmente (Octogon) sau 12 segmente (Dodecagramă).
+     - Rotație interactivă fluidă prin glisare cu cursorul mouse-ului sau touch pe mobil, butoane rapide de pas `-15°` / `+15°` și toggle pauză/auto-rotire.
+     - Slider de focalizare nanometrică (35% - 100%) cu simulare de profunzime de câmp (blur optic gaussian adaptiv).
+     - Micro-mesaj caligrafic secret plasat în centrul focarului optic, iluminat de o prismă laterală cu reflexii de aur.
+   - **Vedere Structurală a Tijei Florale & Finisaj Exterior (Stem Architecture View):**
+     - Al doilea mod de randare artistică pe canvas ilustrează tija trandafirului central cu micro-telescopul din alamă integrat organic, inelul zimțat de reglaj mecanic, prisma colectoare de safir cu fascicul de lumină și colierul metalic gravat laser.
+   - **3 Finisaje Mecanice din Metale Nobile (`TELESCOPE_FINISHES`):**
+     - *Alamă Aurită 24K & Piele Maron Saddlery* (Inclus, 0 RON).
+     - *Titan Argintat Rodiat & Piele Noir Stardust* (+22 RON).
+     - *Aur Roz 18K & Mătase Purpurie Imperială* (+29 RON).
+   - **3 Compoziții Prisme & Cristale (`GEMSTONE_PRISMS`):**
+     - *Diamant Alb & Petale de Trandafir Rubiniu* (Inclus, 0 RON).
+     - *Diamant Roz Argyle & Fulgi de Aur Pur 24K* (+18 RON).
+     - *Safir Astral & Smarald Imperial* (+24 RON).
+   - **3 Geometrii de Oglinzi Caleidoscopice (`MIRROR_GEOMETRIES`):**
+     - *Hexagramă Clasică (6 Segmente)* (Inclus, 0 RON).
+     - *Octogon Regal (8 Segmente)* (+14 RON).
+     - *Dodecagramă Sacră (12 Segmente)* (+20 RON).
+   - **Personalizare Text:**
+     - Câmp pentru mesaj secret în centrul ocularului (max 35 caractere).
+     - Câmp pentru micro-gravură pe colierul metalic din tijă (max 30 caractere).
+   - **Sintetizator Web Audio API (`playOpticsSound`):**
+     - Sunet mecanic tactil de rotație a inelului de alamă zimțat și clinchet cristalin la selectarea prismelor sau geometriilor.
+     - Buton toggle audio `#btn-toggle-optics-audio`.
+   - Buton de aplicare configurație `#btn-apply-kaleidoscope-config` cu `white-space: nowrap !important`.
+
+2. **Modal Dedicat [KaleidoscopeTelescopeModal.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/KaleidoscopeTelescopeModal.jsx):**
+   - Dialog receptiv cu fundal blurat `#kaleidoscope-telescope-modal-overlay`, container scrollabil, buton `X` (`#btn-close-kaleidoscope-telescope-x`) și suport tastă `Escape`.
+
+3. **Pictograme Vectoriale Noi în [CustomIcons.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/CustomIcons.jsx):**
+   - `MicroTelescopeIcon`: Mini-telescop optic vintage din alamă cu lentilă fațetată, inel zimțat și reflexii prismatice.
+   - `KaleidoscopeLensIcon`: Caleidoscop geometric cu reflexii de diamant și raze prismatice.
+
+4. **Catalog [products.js](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/data/products.js):**
+   - Adăugat addon-ul `micro-telescop-caleidoscopic-tija` (+79 RON) în lista oficială `ADDONS` cu atributul `isKaleidoscopeTelescopeCustom: true`.
+
+5. **Integrare Globală în [App.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/App.jsx):**
+   - Montat `KaleidoscopeTelescopeModal`, stare `isKaleidoscopeModalOpen`, listener `open-kaleidoscope-modal` și transmis prop `onOpenKaleidoscope` către Navbar, HomePage și CheckoutPage.
+
+6. **Integrare pe [Navbar.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/Navbar.jsx):**
+   - Adăugat elementul `#btn-drawer-kaleidoscope-telescope` cu `MicroTelescopeIcon` în meniul mobil.
+
+7. **Integrare pe [HomePage.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/pages/HomePage.jsx):**
+   - Buton Hero `#btn-hero-open-kaleidoscope-telescope` cu iconiță `MicroTelescopeIcon`.
+   - Secțiune completă integrată de prezentare `#kaleidoscope-telescope-showcase-section`.
+
+8. **Integrare pe [CheckoutPage.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/pages/CheckoutPage.jsx):**
+   - Recunoaștere automată query param `addon=micro-telescop-caleidoscopic-tija`.
+   - Checkbox în Pasul 2 cu insignă `OPTICĂ ETERICĂ • MICRO-TELESCOP CALEIDOSCOPIC ÎN TIJĂ`.
+   - Card de previzualizare `#checkout-kaleidoscope-preview-card` cu butoane `#btn-checkout-launch-kaleidoscope-modal` și `#btn-toggle-kaleidoscope-customizer`.
+   - Sertar expandabil în pagină `#checkout-kaleidoscope-customizer-drawer` pentru personalizare directă.
+   - Recalculare dinamică automată în `addonsTotal` (+79 RON standard până la +152 RON) și casetă dedicată în Sumar Comandă.
+
+### 🔬 2. Verificări & Rezultate:
+- **Build de producție:** `npm run build` s-a executat cu succes (`built in 2.81s`, 0 erori).
+- **Testare fără emoticoane native:** 0 emoticoane native în directorul `src/` (toate reprezentările vizuale folosesc exclusiv SVG-uri vectoriale din `CustomIcons.jsx` sau `lucide-react`).
+- **Verificare debordare / layout:** `scrollWidth <= window.innerWidth` verificat atât pe Desktop (1536px: 1521px <= 1536px), cât și pe Mobil (390px: 1026px <= 1026px) — 0 overflow orizontal.
+- **Testare în browser Chrome DevTools MCP:**
+  - HomePage: Verificat buton Hero `#btn-hero-open-kaleidoscope-telescope` -> deschide modalul `#kaleidoscope-telescope-modal-overlay`.
+  - Modal: Testat comutarea între Vedere Ocular 360° și Vedere Tijă Florală & Finisaj, comutare finisaj Titan Argintat Rodiat (+22 RON, recalculat dinamic la +101 RON), auto-rotire, slider claritate focală, audio toggle, și închidere cu buton `X`.
+  - Showcase: Verificat `#kaleidoscope-telescope-showcase-section` pe HomePage.
+  - CheckoutPage: Navigat la `/checkout?addon=micro-telescop-caleidoscopic-tija`, verificat checkbox bifat automat, cardul de preview `#checkout-kaleidoscope-preview-card`, deschiderea drawer-ului `#checkout-kaleidoscope-customizer-drawer`, și recalcularea corectă a prețului în Sumar Comandă (+79 RON).
+
+---
+
+## 🕒 Ciclul 47: Configurator Interactiv de Floare Hipnotică Mecatronică cu Petale Motorizate & Senzor de Puls Cardiac & Corecție CSS Warning
+- **Data și Ora:** 12 Octombrie 2026, ora 11:45 (EEST)
+- **Task Implementat:** Task 66: Configurator Interactiv de Floare Hipnotică Mecatronică cu Petale Motorizate & Senzor de Puls Cardiac
+- **Corecție Suplimentară:** Rezolvare avertisment IDE CSS la `src/index.css:291` prin declararea proprietății standard `background-clip: text;` alături de `-webkit-background-clip: text;` în clasa `.highlight-gold`.
+- **Obiectiv & Rezultat:** Crearea unui simulator cinetic interactiv avansat și configurator de artă mecatronică pentru o floare robotică hipnotică integrată în centrul buchetului Stardust. Floarea dispune de petale motorizate din mătase și titan aurit ce respiră și pulsează în ritmul cardiac exact al expeditorului. Sistemul include un senzor de puls cardiac live interactiv (prin atingere repetată / tap pe ecran pentru calcul dinamic BPM), osciloscop ECG în timp real cu forme de undă P-Q-R-S-T, 3 finisaje mecatronice nobile, 4 preseturi de puls cardiac (inclusiv slider fin 50-130 BPM), 3 nuanțe de iluminare LED a miezului, placă capacitivă gravată laser cu dedicație și semnătură, sintetizator organic de sunet Web Audio API (bătăi cardiace „lub-dub” și micro-mecanism acustic de motor pas-cu-pas), și integrare completă pe HomePage, Navbar și Checkout cu recalculare dinamică de preț în timp real.
+
+### 🚀 1. Funcționalități & Modificări Implementate:
+
+1. **Rezolvare Avertisment IDE CSS [index.css](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/index.css#L289-L295):**
+   - Adăugat `background-clip: text;` alături de `-webkit-background-clip: text;` în regula `.highlight-gold`, eliminând avertismentul *"Also define the standard property 'background-clip' for compatibility"*.
+
+2. **Componenta de Bază [MechatronicRoseSimulator.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/MechatronicRoseSimulator.jsx):**
+   - **Simulator Cinetic Mecatronic (Canvas HTML5 2D cu Ritm Sistolo-Diastolic):**
+     - Randare mecanică a 3 straturi concentrice de petale motorizate (10 petale structurale exterioare din titan cu nervuri articulate, 8 petale mediane din mătase nobilă, 6 petale interioare la miezul rotativ).
+     - Animație matematică inspirată de fiziologia cardiacă cu dublu impuls sistolic ($P_1$ la faza 0.05, $P_2$ la faza 0.28) ce controlează deschiderea milimetrică a petalelor.
+     - Nucleu rotativ central mecatronic cu roți dințate, rulmenți micro-aurii și iluminare LED pulsatorie.
+   - **Osciloscop Cardiac ECG în Timp Real:**
+     - Al doilea canvas sincronizat afișează forma reală a undelor cardiace P-Q-R-S-T în funcție de BPM-ul selectat.
+   - **Senzor Tactil Interactiv de Puls Live (`#btn-live-pulse-touch-sensor`):**
+     - Permite utilizatorului să își înregistreze propriul puls în timp real prin atingeri consecutive pe ecran/cursor, calculând automat frecvența BPM medie și sincronizând instant petalele florii mecatronice.
+   - **3 Finisaje Mecatronice Nobile (`MECHATRONIC_FINISHES`):**
+     - *Mătase Roșie & Titan Aurit 24K* (Inclus, 0 RON).
+     - *Noir Titan & Cupru Aurit Rose Gold* (+25 RON).
+     - *Cristal Alb Diamant & Argint Rodiat 925* (+35 RON).
+   - **4 Preseturi Ritm Cardiac (`PULSE_PRESETS`):**
+     - *Puls Cald de Odihnă* (68 BPM) (Inclus, 0 RON).
+     - *Emoție la Prima Întâlnire* (86 BPM) (Inclus, 0 RON).
+     - *Pasiune Fără Margini* (104 BPM) (+15 RON).
+     - *Puls Personalizat Live* (50 - 130 BPM cu slider continuu) (+24 RON).
+   - **3 Moduri de Iluminare LED a Nucleului (`PULSE_LIGHTINGS`):**
+     - *Aura Caldă Ruby (Sensual Crimson)* (Inclus, 0 RON).
+     - *Aura Aurie Amber Gold (Champagne Glow)* (+15 RON).
+     - *Aura Stelară Alb Diamant (Stellar Pure White)* (+20 RON).
+   - **Personalizare Gravură Laser & Suport Capacitiv:**
+     - Câmp pentru text dedicație gravată laser pe baza capacitivă (max 45 caractere).
+     - Câmp pentru semnătură expeditor.
+   - **Sintetizator Web Audio API (`playHeartbeatAudio`):**
+     - Generare acustică organică a sunetului bătăilor inimii („lub-dub”) cu oscilatoare de frecvență joasă (65Hz / 52Hz) modulat cu micro-clic mecanic de motor pas-cu-pas.
+     - Buton toggle on/off cu stare persistentă (`#btn-toggle-heartbeat-audio`).
+   - Buton de aplicare configurație `#btn-apply-mechatronic-rose-config` cu `white-space: nowrap !important`.
+
+3. **Modal Dedicat [MechatronicRoseModal.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/MechatronicRoseModal.jsx):**
+   - Dialog receptiv cu fundal blurat `#mechatronic-rose-modal-overlay`, container scrollabil, buton `X` (`#btn-close-mechatronic-rose-x`) și suport tastă `Escape`.
+
+4. **Pictograme Vectoriale Noi în [CustomIcons.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/CustomIcons.jsx):**
+   - `MechatronicRoseIcon`: Trandafir cinetic articulat cu mecanisme rotative, nervuri de titan și petale motorizate.
+   - `HeartbeatPulseIcon`: Inimă volumetrică bio-cinetică cu undă osciloscopică ECG integrată.
+
+5. **Catalog [products.js](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/data/products.js):**
+   - Adăugat addon-ul `floare-mecatronica-puls-cardiac` (+95 RON) în lista oficială `ADDONS` cu atributul `isMechatronicRoseCustom: true`.
+
+6. **Integrare Globală în [App.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/App.jsx):**
+   - Montat `MechatronicRoseModal`, stare `isMechatronicRoseOpen`, listener `open-mechatronic-rose-modal` și transmis prop `onOpenMechatronicRose` către Navbar, HomePage și CheckoutPage.
+
+7. **Integrare pe [Navbar.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/components/Navbar.jsx):**
+   - Adăugat elementul `#btn-drawer-mechatronic-rose` cu `MechatronicRoseIcon` în meniul mobil.
+
+8. **Integrare pe [HomePage.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/pages/HomePage.jsx):**
+   - Buton Hero `#btn-hero-open-mechatronic-rose` cu iconiță `MechatronicRoseIcon`.
+   - Secțiune completă integrată de prezentare `#mechatronic-rose-showcase-section`.
+
+9. **Integrare pe [CheckoutPage.jsx](file:///c:/Users/Andrei/Desktop/Project%20optimisation/agent%20de%20intrebari%20avansat/projects/site-flori/src/pages/CheckoutPage.jsx):**
+   - Recunoaștere automată query param `addon=floare-mecatronica-puls-cardiac`.
+   - Checkbox în Pasul 2 cu insignă `ARTĂ CINETICĂ • PETALE MOTORIZATE & PULS CARDIAC`.
+   - Card de previzualizare `#checkout-mechatronic-rose-preview-card` cu butoane `#btn-checkout-launch-mechatronic-modal` și `#btn-toggle-mechatronic-customizer`.
+   - Sertar expandabil în pagină `#checkout-mechatronic-rose-customizer-drawer` pentru personalizare directă.
+   - Recalculare dinamică automată în `addonsTotal` (+95 RON standard până la +189 RON) și casetă dedicată în Sumar Comandă.
+
+### 🔬 2. Verificări & Rezultate:
+- **Build de producție:** `npm run build` s-a executat cu succes (`built in 2.68s`, 0 erori).
+- **Testare fără emoticoane native:** 0 emoticoane native în directorul `src/` (toate reprezentările vizuale folosesc exclusiv SVG-uri vectoriale din `CustomIcons.jsx` sau `lucide-react`).
+- **Verificare debordare / layout:** `scrollWidth <= window.innerWidth` verificat atât pe Desktop (1536px), cât și pe Mobil (390px) — 0 overflow orizontal.
+- **Testare în browser Chrome DevTools MCP:**
+  - HomePage: Verificat buton Hero `#btn-hero-open-mechatronic-rose` -> deschide modalul `#mechatronic-rose-modal-overlay`.
+  - Modal: Testat comutarea finisajelor mecatronice, senzorul tactil de puls live, osciloscopul ECG sincronizat, redare audio bătăi de inimă, buton toggle audio, scroll și buton de închidere `#btn-close-mechatronic-rose-x`.
+  - Showcase: Verificat `#mechatronic-rose-showcase-section` pe HomePage.
+  - CheckoutPage: Navigat la `/checkout?addon=floare-mecatronica-puls-cardiac`, verificat checkbox bifat automat, cardul de preview `#checkout-mechatronic-rose-preview-card`, deschiderea drawer-ului `#checkout-mechatronic-rose-customizer-drawer`, și recalcularea corectă a prețului în Sumar Comandă (+95 RON).
+
+---
+
 ## 🕒 Ciclul 46: Configurator Interactiv de Pandantiv Hermetic Secret cu Capsulă de Pulbere de Diamant Cosmic & Mesaj Micro-Gravat
 - **Data și Ora:** 12 Octombrie 2026, ora 11:20 (EEST)
 - **Task Implementat:** Task 65: Configurator Interactiv de Pandantiv Hermetic Secret cu Capsulă de Pulbere de Diamant Cosmic & Mesaj Micro-Gravat
