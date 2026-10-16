@@ -248,16 +248,25 @@ html {
   color: var(--text-main);
   background-color: var(--bg-main);
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   overflow-x: hidden;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
 }
 
 body {
   overflow-x: hidden;
+  position: relative;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   line-height: 1.6;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, .serif-font {
